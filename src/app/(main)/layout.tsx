@@ -5,6 +5,9 @@ import "@/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
 
+import { Provider } from "@/components/providers";
+import { Navbar } from "@/components/navigation/navbar/navbar";
+
 export const metadata = {
   title: "NextJS Storyblok",
   description: "NextJS App Router with Storyblok CMS",
@@ -23,7 +26,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Provider>
+          <header>
+            <Navbar />
+          </header>
+
+          {children}
+
+          <footer></footer>
+        </Provider>
+      </body>
       <StoryblokBridgeLoader options={{}} />
     </html>
   );
