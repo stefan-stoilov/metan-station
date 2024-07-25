@@ -32,7 +32,7 @@ export async function GET(req: NextRequest) {
 
   const storyblok = new StoryblokClient({ accessToken: env.STORYBLOK_TOKEN });
   const { data } = (await storyblok.get(`cdn/stories/${slug || "home"}`, {
-    version: "published",
+    version: "draft",
     excluding_fields: "header,body,seo",
   })) as unknown as SbPageResult;
 

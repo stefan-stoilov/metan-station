@@ -68,11 +68,12 @@ export function DesktopNavMenu({
     <ul
       onMouseLeave={removeCursor}
       className="relative hidden items-center sm:flex"
+      data-orientation="horizontal"
     >
       <div
         aria-label=""
         ref={cursor}
-        className={cn("fixed left-0 h-10 rounded-lg bg-foreground opacity-0")}
+        className={cn("fixed left-0 h-10 rounded-lg bg-primary opacity-0")}
       />
       {links.map(({ label, href }, i) => (
         <li
@@ -92,7 +93,7 @@ export function DesktopNavMenu({
             className={cn(
               "rounded-lg text-foreground hover:bg-transparent hover:text-foreground focus:text-foreground focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0",
               position && position.index === i
-                ? "text-background hover:text-background focus:text-background"
+                ? "text-white hover:text-white focus:text-white"
                 : "",
             )}
           >

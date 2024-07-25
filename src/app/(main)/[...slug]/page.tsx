@@ -4,7 +4,7 @@ import SbSections from "@/configs/sb-component";
 
 export async function generateStaticParams() {
   const { data } = (await storyblokApi.get("cdn/links/", {
-    version: "published",
+    version: "draft",
   })) as unknown as ISbStories;
 
   const paths: { slug: string[] }[] = [];
@@ -29,14 +29,13 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
-  const slug = params?.slug ? params.slug.join("/") : "home";
+  const slug = params.slug.join("/");
   const { data } = await getStory(slug);
 
   const components = data.story.content.body;
 
   return (
-    <main className="flex h-screen flex-col items-center p-20">
-      <h1 className="text-center text-xl">Storyblok Demo</h1>
+    <main className="h-fit min-h-screen w-full">
       <SbSections components={components} />
     </main>
   );
