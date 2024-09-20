@@ -7,6 +7,7 @@ import { GeistSans } from "geist/font/sans";
 
 import { Provider } from "@/components/providers";
 import { Navbar } from "@/components/navigation/navbar/navbar";
+import { NavigationMenuDemo } from "@/components/navigation/navbar/desktop-nav-new";
 
 export const metadata = {
   title: "NextJS Storyblok",
@@ -28,8 +29,9 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
         <Provider>
-          <header>
-            <Navbar />
+          <header className="flex justify-center">
+            {/* <Navbar /> */}
+            <NavigationMenuDemo />
           </header>
 
           {children}

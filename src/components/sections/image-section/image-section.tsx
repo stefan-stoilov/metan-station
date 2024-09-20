@@ -12,18 +12,25 @@ export type ImageSectionProps = {
   image: SbImage;
   overlay?: number;
   richText?: ISbRichtext;
+  desktopAspectRatio?: "21/9";
 } & SbBlokData;
 
 export const ImageSection = ({
   image: { alt, filename },
   overlay,
   richText,
+  desktopAspectRatio,
   ...props
 }: ImageSectionProps) => {
   return (
     <section
       {...storyblokEditable({ ...props })}
-      className="relative flex h-screen w-full justify-center bg-slate-300"
+      style={
+        desktopAspectRatio == "21/9"
+          ? { aspectRatio: desktopAspectRatio }
+          : { height: "100vh" }
+      }
+      className="relative flex w-full justify-center bg-slate-300"
     >
       <Image
         priority
@@ -41,7 +48,7 @@ export const ImageSection = ({
         ></div>
       )}
       {richText && (
-        <div className="prose-white prose-2xl absolute w-4/5 max-w-7xl self-center">
+        <div className="prose prose-2xl prose-white absolute w-4/5 max-w-7xl self-center">
           {render(richText)}
         </div>
       )}
