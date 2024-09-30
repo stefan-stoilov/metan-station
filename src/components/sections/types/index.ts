@@ -1,3 +1,4 @@
-import type { ImageSectionProps } from "../image-section";
-
-export type { ImageSectionProps };
+export type { ImageSectionProps } from "../image-section";
+export type { CardsSectionProps } from "../cards-section";
+export type { ServicesSectionProps } from "../services-section";
+export type { SpacerProps } from "../spacer";

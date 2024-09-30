@@ -6,7 +6,7 @@ import {
   type ISbStories,
 } from "@storyblok/js";
 import { draftMode } from "next/headers";
-import type { SbPageResult } from "@/configs/types/sb-component-types";
+import type { SbPageResult } from "@/configs/types";
 
 const isDev = env.NODE_ENV === "development";
 

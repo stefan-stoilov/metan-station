@@ -4,7 +4,7 @@ import {
   type ISbRichtext,
 } from "@storyblok/react/rsc";
 import { render } from "storyblok-rich-text-react-renderer";
-import type { SbImage } from "@/configs/types/sb-component-types";
+import type { SbImage } from "@/configs/types";
 import Image from "next/image";
 
 export type ImageSectionProps = {
@@ -30,7 +30,7 @@ export const ImageSection = ({
           ? { aspectRatio: desktopAspectRatio }
           : { height: "100vh" }
       }
-      className="relative flex w-full justify-center bg-slate-300"
+      className="relative flex h-screen w-full justify-center bg-slate-300 md:h-[unset]"
     >
       <Image
         priority
