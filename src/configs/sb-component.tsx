@@ -1,5 +1,5 @@
 import { componentMap } from "@/configs/component-map";
-import type { SbComponentProps } from "@/configs/types/sb-component-types";
+import type { SbComponentProps } from "@/configs/types";
 
 export function SbComponent(props: SbComponentProps) {
   const Component = componentMap[props.component];

@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { draftMode, cookies } from "next/headers";
 import StoryblokClient from "storyblok-js-client";
 import { redirect } from "next/navigation";
-import type { SbPageResult } from "@/configs/types/sb-component-types";
+import type { SbPageResult } from "@/configs/types";
 
 export async function GET(req: NextRequest) {
   // Parse query string parameters

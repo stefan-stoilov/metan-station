@@ -1,8 +1,16 @@
 import type { ComponentType } from "react";
-import type { TeaserProps } from "@/components/Teaser";
-import type { ImageSectionProps } from "@/components/sections/types";
+import type {
+  ImageSectionProps,
+  CardsSectionProps,
+  ServicesSectionProps,
+  SpacerProps,
+} from "@/components/sections/types";
 
-export type SbComponentProps = TeaserProps | ImageSectionProps;
+export type SbComponentProps =
+  | ImageSectionProps
+  | CardsSectionProps
+  | ServicesSectionProps
+  | SpacerProps;
 
 export type SbComponentKey = SbComponentProps["component"];
 
