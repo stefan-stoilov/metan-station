@@ -1,5 +1,4 @@
 import type { ComponentType } from "react";
-import type { TeaserProps } from "@/components/Teaser";
 import type {
   ImageSectionProps,
   CardsSectionProps,
@@ -8,7 +7,6 @@ import type {
 } from "@/components/sections/types";
 
 export type SbComponentProps =
-  | TeaserProps
   | ImageSectionProps
   | CardsSectionProps
   | ServicesSectionProps
