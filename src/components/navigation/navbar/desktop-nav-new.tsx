@@ -15,38 +15,6 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-const stations: { title: string; href: string; description: string }[] = [
-  {
-    title: "КПГ - Благоевград",
-    href: "#",
-    description: "КПГ Благоевград може да заредите метан.",
-  },
-  {
-    title: "Ида Метан - Стара Загора",
-    href: "#",
-    description: "Метанстанция Стара Загора",
-  },
-  {
-    title: "CNG - Гоце Делчев",
-    href: "#",
-    description: "Метанстанция Гоце Делчев",
-  },
-  {
-    title: "- София",
-    href: "#",
-    description: "Метанстанция София.",
-  },
-  {
-    title: "Бензиностанция - Бургас",
-    href: "#",
-    description: "Бензиностанция Бургас",
-  },
-  {
-    title: "Метанстанция Симитли",
-    href: "#",
-    description: "Метанстанция Симитли",
-  },
-];
 const services: { title: string; href: string; description: string }[] = [
   {
     title: "КПГ - Благоевград",
@@ -126,6 +94,7 @@ export function NavigationMenuDemo() {
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
+
         <NavigationMenuItem>
           <NavigationMenuTrigger>{"Други Обекети"}</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -142,21 +111,8 @@ export function NavigationMenuDemo() {
               <Link href={"#"} title={"Виж още"}></Link>
             </ul>
           </NavigationMenuContent>
-          <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {stations.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
-              <ListItem title={"Виж още"}></ListItem>
-            </ul>
-          </NavigationMenuContent>
         </NavigationMenuItem>
+
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>

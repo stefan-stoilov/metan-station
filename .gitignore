@@ -20,6 +20,8 @@ next-env.d.ts
 
 # production
 /build
+localhost.pem
+localhost-key.pem
 
 # misc
 .DS_Store

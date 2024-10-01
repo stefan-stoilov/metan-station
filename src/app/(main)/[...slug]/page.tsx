@@ -1,10 +1,16 @@
 import { ISbStories } from "storyblok-js-client";
-import { storyblokApi, getStory, excludedStorySlugs } from "@/lib/storyblok";
-import SbSections from "@/configs/sb-component";
+import {
+  storyblokApi,
+  getStory,
+  excludedStorySlugs,
+  checkForGlobalSlug,
+} from "@/lib/storyblok";
+import { SbSections } from "@/configs/sb-component";
+import { redirect } from "next/navigation";
 
 export async function generateStaticParams() {
   const { data } = (await storyblokApi.get("cdn/links/", {
-    version: "draft",
+    version: "published",
   })) as unknown as ISbStories;
 
   const paths: { slug: string[] }[] = [];
@@ -30,6 +36,8 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: { params: { slug: string[] } }) {
   const slug = params.slug.join("/");
+  if (checkForGlobalSlug(slug)) redirect("/");
+
   const { data } = await getStory(slug);
 
   const components = data.story.content.body;

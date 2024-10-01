@@ -35,6 +35,20 @@ export type SbImage = {
   is_external_url: boolean;
 };
 
+export type SbLink = {
+  id: string;
+  url: string;
+  linktype: "story" | "url" | "asset" | "email";
+  fieldtype: "multilink";
+  target?: "_self" | "_blank";
+  cached_url: string;
+};
+
+export type MappedSbLink = {
+  href: string;
+  target: "_self" | "_blank";
+} | null;
+
 export type SbPageProps = {
   story: {
     content: {
