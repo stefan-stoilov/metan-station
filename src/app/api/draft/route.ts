@@ -4,6 +4,7 @@ import { draftMode, cookies } from "next/headers";
 import StoryblokClient from "storyblok-js-client";
 import { redirect } from "next/navigation";
 import type { SbPageResult } from "@/configs/types";
+import { checkForGlobalSlug } from "@/lib/storyblok";
 
 export async function GET(req: NextRequest) {
   // Parse query string parameters
@@ -27,7 +28,7 @@ export async function GET(req: NextRequest) {
         });
       });
 
-    redirect(`/${slug}`);
+    redirect(checkForGlobalSlug(slug) ? "/" : `/${slug}`);
   }
 
   const storyblok = new StoryblokClient({ accessToken: env.STORYBLOK_TOKEN });
@@ -52,5 +53,5 @@ export async function GET(req: NextRequest) {
     });
 
   // Redirect to the path from the fetched post
-  redirect(`/${slug}`);
+  redirect(checkForGlobalSlug(slug) ? "/" : `/${slug}`);
 }

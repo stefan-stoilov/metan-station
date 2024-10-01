@@ -52,4 +52,12 @@ export async function getStory(slug: string) {
   }) as unknown as SbPageResult;
 }
 
-export const excludedStorySlugs = new Set(["home", "global"]);
+export const excludedStorySlugs = new Set([
+  "home",
+  "global/header",
+  "global/footer",
+]);
+
+export function checkForGlobalSlug(slug: string): boolean {
+  return slug.startsWith("global/");
+}
