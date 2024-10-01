@@ -1,5 +1,5 @@
 import { storyblokEditable, type SbBlokData } from "@storyblok/react/rsc";
-import { Card, type CardBlockProps } from ".";
+import { Card, type CardBlockProps } from "./card";
 
 export type CardsSectionProps = {
   component: "cardsSection";

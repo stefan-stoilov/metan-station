@@ -14,7 +14,6 @@ const sizes = {
 };
 
 export function Spacer({ size, ...props }: SpacerProps) {
-  console.log(size);
   return (
     <div
       {...storyblokEditable(props)}
