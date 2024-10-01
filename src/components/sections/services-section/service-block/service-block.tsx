@@ -6,6 +6,7 @@ import {
 import type { SbImage } from "@/configs/types";
 import { render } from "storyblok-rich-text-react-renderer";
 import { typography as t } from "@/components/ui/typography";
+import { cn, hasSbImage } from "@/lib/utils";
 import Image from "next/image";
 
 export type ServicesBlockProps = {
@@ -14,6 +15,7 @@ export type ServicesBlockProps = {
   subtitle?: string;
   description: ISbRichtext;
   image?: SbImage;
+  desktopImagePosition: "left" | "right";
 } & SbBlokData;
 
 export function ServiceBlock({
@@ -21,17 +23,32 @@ export function ServiceBlock({
   subtitle,
   description,
   image,
+  desktopImagePosition,
   ...props
 }: ServicesBlockProps) {
   return (
-    <div className="flex flex-nowrap items-start gap-5">
-      <div {...storyblokEditable(props)} className="flex w-8/12 flex-col gap-3">
+    <div
+      {...storyblokEditable(props)}
+      className={cn(
+        "flex flex-col-reverse flex-nowrap items-start gap-5",
+        desktopImagePosition === "right"
+          ? "md:flex-row"
+          : "md:flex-row-reverse",
+      )}
+    >
+      <div
+        className={cn(
+          "flex w-full flex-col gap-3",
+          hasSbImage(image) && "md:w-8/12",
+        )}
+      >
         <p className={t.h2}>{title}</p>
-        {subtitle && <p>{subtitle}</p>}
-        {description && <div>{render(description)}</div>}
+        {subtitle && <p className={t.h4}>{subtitle}</p>}
+        {description && <div className="mt-4">{render(description)}</div>}
       </div>
-      {image && (
-        <div className="relative aspect-square w-4/12 flex-shrink-0 overflow-hidden rounded-[50%]">
+
+      {hasSbImage(image) && (
+        <div className="relative aspect-square w-4/12 max-w-[300px] flex-shrink-0 overflow-hidden rounded-[50%]">
           <Image
             src={image.filename}
             alt={image.alt}

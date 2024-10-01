@@ -10,7 +10,7 @@ export function ServicesSection({ services, ...props }: ServicesSectionProps) {
   return (
     <section
       {...storyblokEditable(props)}
-      className="container flex flex-col gap-6"
+      className="container flex flex-col gap-12"
     >
       {services.map((service, i) => (
         <ServiceBlock key={i} {...service} />

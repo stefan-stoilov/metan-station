@@ -27,10 +27,10 @@ export async function getLinks() {
   const { data } = (await storyblokApi.get(
     "cdn/links",
     {
-      version: isDraft ? "draft" : "published",
+      version: isDraft || isDev ? "draft" : "published",
     },
     {
-      next: { revalidate: isDraft ? 1 : 60 * 10 },
+      next: { revalidate: isDraft || isDev ? 1 : 60 * 10 },
     },
   )) as unknown as ISbStories;
 
@@ -43,12 +43,12 @@ export async function getStory(slug: string) {
 
   const sbParams: ISbStoriesParams = {
     resolve_links: "url",
-    version: isDraft ? "draft" : "published",
-    cv: isDraft ? Date.now() : undefined,
+    version: isDraft || isDev ? "draft" : "published",
+    cv: isDraft || isDev ? Date.now() : undefined,
   };
 
   return storyblokApi.get(`cdn/stories/${slug}`, sbParams, {
-    next: { revalidate: isDraft ? 1 : 60 * 10 },
+    next: { revalidate: isDraft || isDev ? 1 : 60 * 10 },
   }) as unknown as SbPageResult;
 }
 

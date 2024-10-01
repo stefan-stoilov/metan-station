@@ -8,6 +8,9 @@ export const componentMap: ComponentMap = {
     () => import("@/components/sections/services-section"),
   ),
   spacer: dynamic(() => import("@/components/sections/spacer")),
+  imagesCarousel: dynamic(
+    () => import("@/components/sections/images-carousel"),
+  ),
 };
 
 export default componentMap;
