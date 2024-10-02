@@ -10,7 +10,7 @@ export function hasSbImage(image: SbImage | undefined): boolean {
   return Boolean(image && typeof image.filename === "string");
 }
 
-export function mapSbLink(link: SbLink | undefined): MappedSbLink {
+export function mapSbLink(link: SbLink | undefined): MappedSbLink | null {
   if (typeof link === "undefined") return null;
 
   const { url, linktype, target, cached_url } = link;

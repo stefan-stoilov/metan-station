@@ -3,7 +3,6 @@ import {
   storyblokInit,
   apiPlugin,
   storyblokEditable,
-  type SbBlokData,
 } from "@storyblok/react/rsc";
 import { getStory } from "@/lib/storyblok";
 import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
@@ -12,8 +11,7 @@ import "@/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 
 import { Provider } from "@/components/providers";
-import { Navbar } from "@/components/navigation/navbar/navbar";
-import { NavigationMenuDemo } from "@/components/navigation/navbar/desktop-nav-new";
+import { Navbar, type NavbarProps } from "@/components/globals/navbar/navbar";
 
 export const metadata = {
   title: "NextJS Storyblok",
@@ -33,7 +31,7 @@ export default async function RootLayout({
 }) {
   const [headerData] = await Promise.all([getStory(`global/header`)]);
 
-  const headerContent = headerData.data.story.content as unknown as SbBlokData;
+  const headerContent = headerData.data.story.content as unknown as NavbarProps;
 
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
@@ -43,8 +41,7 @@ export default async function RootLayout({
             className="flex justify-center"
             {...storyblokEditable(headerContent)}
           >
-            {/* <Navbar /> */}
-            <NavigationMenuDemo />
+            <Navbar {...headerContent} />
           </header>
 
           {children}
