@@ -33,6 +33,7 @@ export type AspectRatioType = keyof typeof mobileAspectRatios;
 export type AspectRatioProps = {
   mobile: AspectRatioType;
   desktop: AspectRatioType;
+  className?: string;
   sbProps?: SbBlokData;
 } & PropsWithChildren;
 
@@ -41,6 +42,7 @@ export function AspectRatio({
   desktop,
   sbProps,
   children,
+  className,
 }: AspectRatioProps) {
   return (
     <div
@@ -49,6 +51,7 @@ export function AspectRatio({
         "relative w-full",
         mobileAspectRatios[mobile],
         desktopAspectRatios[desktop],
+        className,
       )}
     >
       {children}
