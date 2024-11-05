@@ -44,7 +44,11 @@ export function ServiceBlock({
       >
         <p className={t.h2}>{title}</p>
         {subtitle && <p className={t.h4}>{subtitle}</p>}
-        {description && <div className="mt-4">{render(description)}</div>}
+        {description && (
+          <div className="mt-4 text-muted-foreground">
+            {render(description)}
+          </div>
+        )}
       </div>
 
       {hasSbImage(image) && (

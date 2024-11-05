@@ -12,6 +12,7 @@ import { GeistSans } from "geist/font/sans";
 
 import { Provider } from "@/components/providers";
 import { Navbar, type NavbarProps } from "@/components/globals/navbar/navbar";
+import Footer from "@/components/globals/footer/footer";
 
 export const metadata = {
   title: "NextJS Storyblok",
@@ -46,7 +47,7 @@ export default async function RootLayout({
 
           {children}
 
-          {/* <footer></footer> */}
+          <Footer />
         </Provider>
       </body>
       <StoryblokBridgeLoader options={{}} />

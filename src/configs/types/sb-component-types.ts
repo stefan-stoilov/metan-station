@@ -5,6 +5,7 @@ import type {
   ServicesSectionProps,
   SpacerProps,
   ImagesCarouselProps,
+  PromoSectionProps,
 } from "@/components/sections/types";
 
 export type SbComponentProps =
@@ -12,7 +13,8 @@ export type SbComponentProps =
   | CardsSectionProps
   | ServicesSectionProps
   | SpacerProps
-  | ImagesCarouselProps;
+  | ImagesCarouselProps
+  | PromoSectionProps;
 
 export type SbComponentKey = SbComponentProps["component"];
 

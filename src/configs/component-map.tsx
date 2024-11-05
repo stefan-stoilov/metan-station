@@ -11,6 +11,7 @@ export const componentMap: ComponentMap = {
   imagesCarousel: dynamic(
     () => import("@/components/sections/images-carousel"),
   ),
+  promoSection: dynamic(() => import("@/components/sections/promo-section")),
 };
 
 export default componentMap;

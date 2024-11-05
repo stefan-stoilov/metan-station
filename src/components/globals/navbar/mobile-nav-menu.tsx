@@ -3,22 +3,14 @@ import type { NavMenuItemProps, NavMenuProps } from "../types";
 import type { SbLink } from "@/configs/types";
 
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 import { Menu } from "lucide-react";
 
 import { mapSbLink } from "@/lib/utils";
@@ -101,18 +93,10 @@ export function NavMenuMobile({
               ),
             )}
           </Accordion>
-          {/* <SheetHeader>
-            <SheetTitle>Edit profile</SheetTitle>
-            <SheetDescription>
-              Make changes to your profile here. Click save when you're done.
-            </SheetDescription>
-          </SheetHeader>
 
-          <SheetFooter>
-            <SheetClose asChild>
-              <Button type="submit">Save changes</Button>
-            </SheetClose>
-          </SheetFooter> */}
+          <div className="absolute bottom-2 right-2">
+            <ThemeSwitcher />
+          </div>
         </SheetContent>
       </Sheet>
     </div>
@@ -142,10 +126,10 @@ function LinkItem({ link, children }: LinkItemProps) {
   const mappedLink = mapSbLink(link);
 
   return mappedLink ? (
-    <Link className="flex flex-col gap-1 px-2 py-3" {...mappedLink}>
+    <Link className="flex flex-col gap-1 py-3" {...mappedLink}>
       {children}
     </Link>
   ) : (
-    <p className="flex flex-col gap-1 px-2 py-3">{children}</p>
+    <p className="flex flex-col gap-1 py-3">{children}</p>
   );
 }
